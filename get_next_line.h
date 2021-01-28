@@ -6,7 +6,7 @@
 /*   By: adconsta <adconsta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 16:51:20 by adconsta          #+#    #+#             */
-/*   Updated: 2021/01/28 19:08:02 by calao            ###   ########.fr       */
+/*   Updated: 2021/01/28 19:47:08 by calao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ void	ft_gnlstrncpy(char *dest, char *src, int n);
 char	*ft_gnlstrjoin(char *storage, char *s2);
 char	*ft_gnlstrdup(char *str);
 int		look_for_newline(char *str);
+int		read_file(char **storage, char **line, char *buf, int fd);
+char	*ft_update_storage(char *storage);
+char	*ft_make_line(char *storage);
 
 #endif
 
