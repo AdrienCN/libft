@@ -6,7 +6,7 @@
 /*   By: adconsta <adconsta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 14:19:25 by adconsta          #+#    #+#             */
-/*   Updated: 2020/11/22 15:11:39 by adconsta         ###   ########.fr       */
+/*   Updated: 2021/01/28 16:35:20 by calao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static	int		ft_word_size(char **tab, char const *str, char c)
 	return (1);
 }
 
-static	void	ft_strcpy(char **tab, char const *str, char c)
+static	void	ft_joinstrcpy(char **tab, char const *str, char c)
 {
 	int i;
 	int j;
@@ -112,6 +112,6 @@ char			**ft_split(char const *str, char c)
 		ft_free_split(tab, word_count);
 		return (NULL);
 	}
-	ft_strcpy(tab, str, c);
+	ft_joinstrcpy(tab, str, c);
 	return (tab);
 }
