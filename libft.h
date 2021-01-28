@@ -6,7 +6,7 @@
 /*   By: adconsta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 14:36:23 by adconsta          #+#    #+#             */
-/*   Updated: 2021/01/28 16:36:54 by calao            ###   ########.fr       */
+/*   Updated: 2021/01/28 19:19:18 by calao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include "get_next_line.h"
 
 typedef struct	s_list
 {
