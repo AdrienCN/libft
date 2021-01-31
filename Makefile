@@ -26,7 +26,7 @@ SRCS	= \
 		ft_strlcpy.c\
 		ft_strlen.c\
 		ft_strmapi.c\
-		ft_strncmp.c\
+		ft_strcmp.c\
 		ft_strncmp.c\
 		ft_strncpy.c\
 		ft_strndup.c\
