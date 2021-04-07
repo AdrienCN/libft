@@ -3,38 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adconsta <adconsta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/21 17:33:13 by adconsta          #+#    #+#             */
-/*   Updated: 2020/11/22 15:06:13 by adconsta         ###   ########.fr       */
+/*   Created: 2020/09/22 21:07:57 by louise            #+#    #+#             */
+/*   Updated: 2020/10/09 22:29:45 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *l, void *(*f)(void *),	void (*del)(void *))
 {
-	t_list *b_list;
-	t_list *n_node;
-	t_list *tmp;
+	t_list	*begin;
+	t_list	*previous;
+	t_list	*new;
 
-	if (!lst || !f)
-		return (NULL);
-	tmp = lst;
-	if (!(n_node = ft_lstnew(f(tmp->content))))
-		return (NULL);
-	b_list = n_node;
-	tmp = tmp->next;
-	while (tmp)
+	begin = NULL;
+	previous = NULL;
+	if (l)
 	{
-		n_node = ft_lstnew(f(tmp->content));
-		if (n_node == NULL)
+		while (l)
 		{
-			ft_lstclear(&b_list, del);
-			return (NULL);
+			new = ft_lstnew((*f)(l->content));
+			if (!new)
+			{
+				ft_lstclear(&begin, del);
+				return (NULL);
+			}
+			if (!begin)
+				begin = new;
+			if (previous)
+				previous->next = new;
+			previous = new;
+			l = l->next;
 		}
-		ft_lstadd_back(&b_list, n_node);
-		tmp = tmp->next;
 	}
-	return (b_list);
+	return (begin);
 }

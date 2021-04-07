@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adconsta <adconsta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/21 16:29:19 by adconsta          #+#    #+#             */
-/*   Updated: 2020/11/21 16:31:56 by adconsta         ###   ########.fr       */
+/*   Created: 2020/09/22 19:49:26 by louise            #+#    #+#             */
+/*   Updated: 2020/09/24 15:19:27 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,8 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	t_list *tmp;
-
-	if (!lst)
-		return (NULL);
-	tmp = lst;
-	while (tmp->next)
-		tmp = tmp->next;
-	return (tmp);
+	if (lst)
+		while (lst->next)
+			lst = lst->next;
+	return (lst);
 }

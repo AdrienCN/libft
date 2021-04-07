@@ -3,31 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adconsta <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/09 18:13:00 by adconsta          #+#    #+#             */
-/*   Updated: 2020/11/18 21:01:04 by adconsta         ###   ########.fr       */
+/*   Created: 2020/09/20 22:52:25 by louise            #+#    #+#             */
+/*   Updated: 2020/09/21 14:45:21 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *hay, const char *need, size_t len)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	if (*little == '\0' || little == NULL)
-		return ((char*)big);
-	while (i < len && big[i] != '\0')
+	if (!(*need))
+		return ((char *)hay);
+	while (hay[i] && i < len)
 	{
-		j = 0;
-		while (little[j] == big[i + j] && i + j < len)
+		if (hay[i] == *need)
 		{
-			j++;
-			if (little[j] == '\0')
-				return ((char*)&big[i]);
+			j = 0;
+			while (hay[i + j] && need[j] && (i + j) < len
+				&& hay[i + j] == need[j])
+				j++;
+			if (!(need[j]))
+				return ((char *)(hay + i));
 		}
 		i++;
 	}

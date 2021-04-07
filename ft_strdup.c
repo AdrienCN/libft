@@ -3,35 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adconsta <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/10 10:45:03 by adconsta          #+#    #+#             */
-/*   Updated: 2020/11/18 19:50:00 by adconsta         ###   ########.fr       */
+/*   Created: 2020/09/21 14:59:35 by louise            #+#    #+#             */
+/*   Updated: 2020/10/09 21:58:27 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *s1)
 {
 	size_t	i;
-	size_t	s_len;
-	char	*new_s;
+	size_t	len;
+	char	*dup;
 
-	i = 0;
-	new_s = NULL;
-	while (s[i] != '\0')
-		i++;
-	s_len = i;
-	new_s = malloc(sizeof(char) * (s_len + 1));
-	if (new_s == NULL)
+	i = -1;
+	len = ft_strlen(s1);
+	dup = (char*)malloc(sizeof(char) * (len + 1));
+	if (!dup)
 		return (NULL);
-	i = 0;
-	while (s[i] != '\0')
-	{
-		new_s[i] = s[i];
-		i++;
-	}
-	new_s[i] = '\0';
-	return (new_s);
+	while (s1[++i])
+		dup[i] = s1[i];
+	dup[i] = '\0';
+	return (dup);
 }

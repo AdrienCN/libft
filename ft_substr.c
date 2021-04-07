@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adconsta <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 11:39:03 by adconsta          #+#    #+#             */
-/*   Updated: 2020/11/22 12:27:08 by adconsta         ###   ########.fr       */
+/*   Created: 2020/09/21 15:08:02 by louise            #+#    #+#             */
+/*   Updated: 2020/10/09 22:00:01 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	char	*str;
+	char	*new;
+	int		s_len;
+	int		def_len;
+	int		i;
 
-	i = 0;
-	if (!s)
-		return (NULL);
-	str = malloc(sizeof(*s) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	if (start >= ft_strlen(s))
+	i = -1;
+	new = NULL;
+	if (s)
 	{
-		*str = '\0';
-		return (str);
+		s_len = (int)ft_strlen(s);
+		def_len = len;
+		if ((int)start > s_len)
+			def_len = 0;
+		else if ((int)start + def_len > s_len)
+			def_len = s_len - (int)start;
+		new = (char *) malloc(sizeof(char) * (def_len + 1));
+		if (!new)
+			return (NULL);
+		while (++i < def_len)
+			new[i] = s[start + i];
+		new[i] = '\0';
 	}
-	while (s[start] && len > 0)
-	{
-		str[i] = s[start];
-		i++;
-		start++;
-		len--;
-	}
-	str[i] = '\0';
-	return (str);
+	return (new);
 }

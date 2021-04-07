@@ -3,30 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adconsta <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 12:06:03 by adconsta          #+#    #+#             */
-/*   Updated: 2021/01/31 09:48:17 by calao            ###   ########.fr       */
+/*   Created: 2020/09/21 15:15:55 by louise            #+#    #+#             */
+/*   Updated: 2020/10/09 22:03:13 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	char	*str;
-	size_t	l1;
-	size_t	l2;
+	char	*new;
+	size_t	s1_len;
+	size_t	s2_len;
 
-	if (!s1 || !s2)
+	s1_len = 0;
+	if (s1)
+		s1_len = ft_strlen(s1);
+	s2_len = 0;
+	if (s2)
+		s2_len = ft_strlen(s2);
+	new = (char*)ft_calloc((s1_len + s2_len + 1), sizeof(char));
+	if (!new)
 		return (NULL);
-	l1 = ft_strlen(s1);
-	l2 = ft_strlen(s2);
-	str = malloc(sizeof(char) * (l1 + l2 + 1));
-	if (str == NULL)
-		return (NULL);
-	ft_memmove(str, s1, l1);
-	ft_memmove(str + l1, s2, l2);
-	str[l1 + l2] = '\0';
-	return (str);
+	ft_strlcpy(new, s1, s1_len + 1);
+	ft_strlcat(new, s2, s1_len + s2_len + 1);
+	return (new);
 }

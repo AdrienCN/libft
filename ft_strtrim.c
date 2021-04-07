@@ -3,31 +3,77 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adconsta <adconsta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 12:21:59 by adconsta          #+#    #+#             */
-/*   Updated: 2020/11/22 15:45:21 by adconsta         ###   ########.fr       */
+/*   Created: 2020/09/21 17:00:39 by louise            #+#    #+#             */
+/*   Updated: 2020/10/09 22:07:47 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(const char *s1, char const *set)
+static int	is_charset(char c, const char *set)
 {
-	size_t	len;
-	size_t	start;
-	char	*trim;
+	int	i;
 
-	if (!s1 || !set)
-		return (NULL);
-	start = 0;
-	while (s1[start] && ft_strchr(set, s1[start]))
-		start++;
-	len = ft_strlen(s1);
-	if (start == len)
-		return (ft_calloc(1, 1));
-	while (len && ft_strchr(set, s1[len]))
-		len--;
-	trim = ft_substr(s1, start, len - start + 1);
-	return (trim);
+	i = 0;
+	while (set[i])
+	{
+		if (set[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+static int	char_to_rmv(const char *s1, const char *set, size_t len)
+{
+	size_t	i;
+	size_t	j;
+	size_t	nb;
+
+	i = 0;
+	j = 0;
+	nb = 0;
+	while (s1[i] && is_charset(s1[i], set))
+	{
+		nb++;
+		i++;
+	}
+	if (i != ft_strlen(s1))
+	{
+		while (len >= j + 1 && is_charset(s1[len - j - 1], set))
+		{
+			nb++;
+			j++;
+		}
+	}
+	return (nb);
+}
+
+char	*ft_strtrim(const char *s1, const char *set)
+{
+	char	*new;
+	size_t	i;
+	size_t	start_index;
+	size_t	char_to_copy;
+	size_t	len;
+
+	i = -1;
+	start_index = 0;
+	new = NULL;
+	if (s1)
+	{
+		len = ft_strlen(s1);
+		char_to_copy = len - char_to_rmv(s1, set, len);
+		new = (char*)malloc(sizeof(char) * (char_to_copy + 1));
+		if (!new)
+			return (NULL);
+		while (s1[start_index] && is_charset(s1[start_index], set))
+			start_index++;
+		while (++i < char_to_copy)
+			new[i] = s1[start_index + i];
+		new[i] = '\0';
+	}
+	return (new);
 }

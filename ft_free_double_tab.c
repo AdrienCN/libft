@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_double_tab.c                               :+:      :+:    :+:   */
+/*   free_double_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calao <adconsta@student.42.fr>             +#+  +:+       +#+        */
+/*   By: lsoulier <lsoulier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 17:51:18 by calao             #+#    #+#             */
-/*   Updated: 2021/04/07 17:59:07 by calao            ###   ########.fr       */
+/*   Created: 2020/12/31 05:08:34 by lsoulier          #+#    #+#             */
+/*   Updated: 2020/12/31 05:08:43 by lsoulier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_free_double_tab(char **tab)
+void	*free_double_tab(char **tab)
 {
-	while (*tab)
-	{
-		free(*tab);
-		tab++;
-	}
+	int	i;
+
+	i = -1;
+	while (tab[++i])
+		free(tab[i]);
 	free(tab);
 	return (NULL);
 }

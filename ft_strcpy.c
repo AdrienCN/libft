@@ -3,23 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calao <adconsta@student.42.fr>             +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 16:24:16 by calao             #+#    #+#             */
-/*   Updated: 2021/01/28 16:27:09 by calao            ###   ########.fr       */
+/*   Created: 2020/09/28 00:46:27 by louise            #+#    #+#             */
+/*   Updated: 2020/09/28 00:48:43 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strcpy(char *dest, const char *src)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	while (*src)
-	{
-		*dest = *src;
-		dest++;
-		src++;
-	}
-	*dest = *src;
-	return (dest);
+	int	i;
+	int	len;
+
+	i = -1;
+	len = ft_strlen(src);
+	while (++i < len)
+		dst[i] = src[i];
+	dst[i] = '\0';
+	return (dst);
 }
