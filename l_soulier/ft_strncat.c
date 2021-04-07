@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calao <adconsta@student.42.fr>             +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 16:27:19 by calao             #+#    #+#             */
-/*   Updated: 2021/04/07 18:31:48 by calao            ###   ########.fr       */
+/*   Created: 2020/09/28 13:03:27 by louise            #+#    #+#             */
+/*   Updated: 2020/09/28 13:09:24 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	size_t i;
+	size_t	i;
+	size_t	s1_len;
 
 	i = 0;
-	while (src[i] != '\0' && i < n)
+	s1_len = ft_strlen((const char*)s1);
+	while (s2[i] && i < n)
 	{
-		dest[i] = src[i];
+		s1[s1_len + i] = s2[i];
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	s1[s1_len + i] = '\0';
+	return (s1);
 }

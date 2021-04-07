@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calao <adconsta@student.42.fr>             +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 16:27:19 by calao             #+#    #+#             */
-/*   Updated: 2021/04/07 18:31:48 by calao            ###   ########.fr       */
+/*   Created: 2020/09/28 00:17:33 by louise            #+#    #+#             */
+/*   Updated: 2020/09/28 00:24:34 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+void	ft_rev_int_tab(int *tab, int size)
 {
-	size_t i;
+	int	i;
 
-	i = 0;
-	while (src[i] != '\0' && i < n)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	i = -1;
+	while (++i < (size / 2))
+		ft_swap_int(tab + i, tab + size - i - 1);
 }

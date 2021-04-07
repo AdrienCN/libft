@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calao <adconsta@student.42.fr>             +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 16:27:19 by calao             #+#    #+#             */
-/*   Updated: 2021/04/07 18:31:48 by calao            ###   ########.fr       */
+/*   Created: 2020/09/28 00:04:30 by louise            #+#    #+#             */
+/*   Updated: 2020/09/28 16:47:29 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+long	ft_abs(int n)
 {
-	size_t i;
+	long	nb;
 
-	i = 0;
-	while (src[i] != '\0' && i < n)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	if (n < 0)
+		nb = - (long)n;
+	else
+		nb = n;
+	return (nb);
 }

@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calao <adconsta@student.42.fr>             +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 16:27:19 by calao             #+#    #+#             */
-/*   Updated: 2021/04/07 18:31:48 by calao            ###   ########.fr       */
+/*   Created: 2020/09/28 00:33:40 by louise            #+#    #+#             */
+/*   Updated: 2020/09/28 00:44:43 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+void	ft_sort_int_tab(int *tab, int size)
 {
-	size_t i;
+	int	i;
+	int	j;
 
-	i = 0;
-	while (src[i] != '\0' && i < n)
+	i = -1;
+	while (++i < size - 1)
 	{
-		dest[i] = src[i];
-		i++;
+		j = i;
+		while (++j < size)
+		{
+			if (tab[i] > tab[j])
+			{
+				ft_swap_int(tab + i, tab + j);
+				i = 0;
+			}
+		}
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
 }

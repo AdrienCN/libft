@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_check_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calao <adconsta@student.42.fr>             +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 16:27:19 by calao             #+#    #+#             */
-/*   Updated: 2021/04/07 18:31:48 by calao            ###   ########.fr       */
+/*   Created: 2020/09/28 14:01:41 by louise            #+#    #+#             */
+/*   Updated: 2020/09/28 14:02:08 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+int	ft_check_base(char *base)
 {
-	size_t i;
+	int	i;
+	int	j;
 
+	if (!base[0] || !base[1])
+		return (0);
 	i = 0;
-	while (src[i] != '\0' && i < n)
+	while (base[i])
 	{
-		dest[i] = src[i];
+		if (base[i] == '+' || base[i] == '-' || ft_isspace(base[i]))
+			return (0);
+		j = i + 1;
+		while (base[j])
+		{
+			if (base[i] == base[j])
+				return (0);
+			j++;
+		}
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (1);
 }

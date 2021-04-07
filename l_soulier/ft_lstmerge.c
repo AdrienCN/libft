@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstmerge.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calao <adconsta@student.42.fr>             +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 16:27:19 by calao             #+#    #+#             */
-/*   Updated: 2021/04/07 18:31:48 by calao            ###   ########.fr       */
+/*   Created: 2020/09/28 15:54:11 by louise            #+#    #+#             */
+/*   Updated: 2020/09/28 15:54:58 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+void	ft_lstmerge(t_list **begin_list1, t_list *begin_list2)
 {
-	size_t i;
+	t_list	*current;
 
-	i = 0;
-	while (src[i] != '\0' && i < n)
+	current = *begin_list1;
+	if (current)
 	{
-		dest[i] = src[i];
-		i++;
+		while (current->next)
+			current = current->next;
+		current->next = begin_list2;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	else
+		*begin_list1 = begin_list2;
 }

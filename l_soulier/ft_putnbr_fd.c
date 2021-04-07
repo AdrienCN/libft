@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calao <adconsta@student.42.fr>             +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 16:27:19 by calao             #+#    #+#             */
-/*   Updated: 2021/04/07 18:31:48 by calao            ###   ########.fr       */
+/*   Created: 2020/09/22 18:30:00 by louise            #+#    #+#             */
+/*   Updated: 2020/10/09 22:18:50 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t i;
+	long	nb;
+	char	digit;
 
-	i = 0;
-	while (src[i] != '\0' && i < n)
+	nb = n;
+	if (n < 0)
 	{
-		dest[i] = src[i];
-		i++;
+		write(fd, "-", 1);
+		nb = - (long) n;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	if (nb >= 10)
+		ft_putnbr_fd(nb / 10, fd);
+	digit = (nb % 10) + '0';
+	write(fd, &digit, 1);
 }

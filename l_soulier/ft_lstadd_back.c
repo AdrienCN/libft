@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calao <adconsta@student.42.fr>             +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 16:27:19 by calao             #+#    #+#             */
-/*   Updated: 2021/04/07 18:31:48 by calao            ###   ########.fr       */
+/*   Created: 2020/09/22 19:54:53 by louise            #+#    #+#             */
+/*   Updated: 2020/09/24 15:21:27 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	size_t i;
+	t_list	*begin;
 
-	i = 0;
-	while (src[i] != '\0' && i < n)
+	begin = *alst;
+	if (begin)
 	{
-		dest[i] = src[i];
-		i++;
+		while (begin->next)
+			begin = begin->next;
+		begin->next = new;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	else
+		*alst = new;
 }

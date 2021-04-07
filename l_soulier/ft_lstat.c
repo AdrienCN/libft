@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstat.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calao <adconsta@student.42.fr>             +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 16:27:19 by calao             #+#    #+#             */
-/*   Updated: 2021/04/07 18:31:48 by calao            ###   ########.fr       */
+/*   Created: 2020/09/28 15:26:49 by louise            #+#    #+#             */
+/*   Updated: 2020/09/28 15:32:45 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+t_list	*ft_lstat(t_list *begin, unsigned int nbr)
 {
-	size_t i;
+	unsigned int	i;
 
-	i = 0;
-	while (src[i] != '\0' && i < n)
+	i = -1;
+	while (begin && ++i <= nbr)
 	{
-		dest[i] = src[i];
-		i++;
+		if (i == nbr)
+			return (begin);
+		begin = begin->next;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (NULL);
 }

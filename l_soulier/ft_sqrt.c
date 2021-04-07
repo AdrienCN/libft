@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calao <adconsta@student.42.fr>             +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 16:27:19 by calao             #+#    #+#             */
-/*   Updated: 2021/04/07 18:31:48 by calao            ###   ########.fr       */
+/*   Created: 2020/09/28 14:24:10 by louise            #+#    #+#             */
+/*   Updated: 2020/09/28 14:28:12 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+int	ft_sqrt(int nb)
 {
-	size_t i;
+	int	i;
 
-	i = 0;
-	while (src[i] != '\0' && i < n)
+	i = 1;
+	if (nb > 0)
 	{
-		dest[i] = src[i];
-		i++;
+		while (i * i <= nb && i <= 46340)
+		{
+			if (i * i == nb)
+				return (i);
+			i++;
+		}
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (0);
 }

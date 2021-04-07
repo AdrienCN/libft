@@ -36,9 +36,26 @@ SRCS	= \
 		ft_substr.c\
 		ft_tolower.c\
 		ft_toupper.c\
+		ft_isbase.c\
+		ft_abs.c\
+		ft_print_double_tab_fd.c\
+		ft_free_double_tab.c\
+		ft_isspace.c\
+		ft_join_strs.c\
 		get_next_line.c\
 		get_next_line_utils.c\
       	ft_bzero.c\
+		ft_lstnew.c\
+		ft_lstadd_front.c\
+		ft_lstsize.c\
+		ft_lstadd_strs.c\
+		ft_lstfind.c\
+		ft_lstlast.c\
+		ft_lstadd_back.c\
+		ft_lstdelone.c\
+		ft_lstclear.c\
+		ft_lstmap.c\
+		ft_lstiter.c
 
 LIST = \
 		ft_lstnew.c\
@@ -49,7 +66,7 @@ LIST = \
 		ft_lstdelone.c\
 		ft_lstclear.c\
 		ft_lstmap.c\
-		ft_lstiter.c\
+		ft_lstiter.c
 
 OBJ	= $(SRCS:.c=.o)
 CC	= gcc
@@ -58,7 +75,7 @@ NAME	= libft.a
 OBJ_BONUS = $(LIST:.c=.o)
 
 $(NAME): $(OBJ)
-	ar rcs $@ $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 	ranlib $(NAME)
 
 all: $(NAME)

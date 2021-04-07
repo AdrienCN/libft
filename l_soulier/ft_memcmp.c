@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calao <adconsta@student.42.fr>             +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 16:27:19 by calao             #+#    #+#             */
-/*   Updated: 2021/04/07 18:31:48 by calao            ###   ########.fr       */
+/*   Created: 2020/09/20 21:17:43 by louise            #+#    #+#             */
+/*   Updated: 2020/09/24 11:38:20 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t i;
+	size_t			i;
+	unsigned char	*s1_uc;
+	unsigned char	*s2_uc;
 
 	i = 0;
-	while (src[i] != '\0' && i < n)
+	s1_uc = (unsigned char*)s1;
+	s2_uc = (unsigned char*)s2;
+	while (i < n && n)
 	{
-		dest[i] = src[i];
+		if (s1_uc[i] != s2_uc[i])
+			return (s1_uc[i] - s2_uc[i]);
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (0);
 }

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calao <adconsta@student.42.fr>             +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 16:27:19 by calao             #+#    #+#             */
-/*   Updated: 2021/04/07 18:31:48 by calao            ###   ########.fr       */
+/*   Created: 2020/09/22 20:41:04 by louise            #+#    #+#             */
+/*   Updated: 2020/09/22 20:49:20 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	size_t i;
+	t_list	*track;
+	t_list	*next;
 
-	i = 0;
-	while (src[i] != '\0' && i < n)
+	track = *lst;
+	while (track)
 	{
-		dest[i] = src[i];
-		i++;
+		next = track->next;
+		track->next = NULL;
+		if (track->content)
+			(*del)(track->content);
+		free(track);
+		track = next;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	*lst = NULL;
 }

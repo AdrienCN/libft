@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calao <adconsta@student.42.fr>             +#+  +:+       +#+        */
+/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 16:27:19 by calao             #+#    #+#             */
-/*   Updated: 2021/04/07 18:31:48 by calao            ###   ########.fr       */
+/*   Created: 2020/09/28 15:46:18 by louise            #+#    #+#             */
+/*   Updated: 2020/09/28 15:46:56 by louise           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+void	ft_lstrev(t_list **begin_list)
 {
-	size_t i;
+	t_list	*next;
+	t_list	*current;
+	t_list	*previous;
 
-	i = 0;
-	while (src[i] != '\0' && i < n)
+	current = *begin_list;
+	previous = NULL;
+	while (current)
 	{
-		dest[i] = src[i];
-		i++;
+		next = current->next;
+		current->next = previous;
+		previous = current;
+		current = next;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	*begin_list = previous;
 }

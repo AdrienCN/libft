@@ -6,7 +6,7 @@
 /*   By: adconsta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 14:36:23 by adconsta          #+#    #+#             */
-/*   Updated: 2021/04/07 18:00:01 by calao            ###   ########.fr       */
+/*   Updated: 2021/04/07 18:28:27 by calao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,5 @@ void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_print_double_tab_fd(char **tab, int fd);
+long			ft_abs(int n);
 #endif
