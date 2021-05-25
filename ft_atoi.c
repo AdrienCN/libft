@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
+/*   By: calao <adconsta@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/20 22:40:54 by louise            #+#    #+#             */
-/*   Updated: 2020/09/28 16:45:14 by louise           ###   ########.fr       */
+/*   Created: 2021/04/29 10:42:07 by calao             #+#    #+#             */
+/*   Updated: 2021/04/29 10:42:09 by calao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	is_whitespace(int c)
 		|| c == '\f' || c == '\r' || c == ' ');
 }
 
-int	ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
 	int	i;
 	int	sign;

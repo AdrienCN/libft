@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: louise <lsoulier@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adrien <adconsta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/21 17:00:39 by louise            #+#    #+#             */
-/*   Updated: 2020/10/09 22:07:47 by louise           ###   ########.fr       */
+/*   Created: 2020/09/21 17:00:39 by adrien            #+#    #+#             */
+/*   Updated: 2021/04/20 10:33:19 by adrien           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	char_to_rmv(const char *s1, const char *set, size_t len)
 	return (nb);
 }
 
-char	*ft_strtrim(const char *s1, const char *set)
+char		*ft_strtrim(const char *s1, const char *set)
 {
 	char	*new;
 	size_t	i;
